@@ -23,17 +23,17 @@ const App = () => {
     //       })
   // }
 
-  const [category, setCategory] = useState('all');
-  const onSelect = useCallback(
-      category => setCategory(category)
-    ,[])
+  // const [category, setCategory] = useState('all');
+  // const onSelect = useCallback(
+  //     category => setCategory(category)
+  //   ,[])
   return (
-    // <Route path="/:category" component={NewsPages}/>
+    <Route path="/:category?" component={NewsPages}/>
 
-    <>
-      <Categories category ={category} onSelect={onSelect}/>
-      <NewsList category ={category}/>
-    </>
+    // <>
+    //   <Categories category ={category} onSelect={onSelect}/>
+    //   <NewsList category ={category}/>
+    // </>
 
     // <div>
     //   <div>
