@@ -3,7 +3,7 @@ let postId = 1; // id의 초깃값입니다.
 // posts 배열 초기 데이터
 const posts = [
   {
-    id: 1,
+    id: 2,
     title: "제목",
     body: "내용",
   },
