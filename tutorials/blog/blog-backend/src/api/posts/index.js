@@ -1,6 +1,6 @@
 import Router from "koa-router";
 const posts = new Router();
-import * as postsCtrl from "./posts.old_ctrl";
+import * as postsCtrl from "./posts.ctrl";
 
 // const printInfo = ctx => {
 //   ctx.body = {
@@ -20,9 +20,13 @@ import * as postsCtrl from "./posts.old_ctrl";
 
 posts.get("/", postsCtrl.list);
 posts.post("/", postsCtrl.write);
-posts.get("/:id", postsCtrl.read);
-posts.delete("/:id", postsCtrl.remove);
-posts.put("/:id", postsCtrl.replace);
-posts.patch("/:id", postsCtrl.update);
+
+const post = new Router(); // /api/posts/:id
+post.get("/", postsCtrl.read);
+post.delete("/", postsCtrl.remove);
+// posts.put("/:id", postsCtrl.replace);
+post.patch("/", postsCtrl.update);
+
+posts.use("/:id", postsCtrl.checkObjectId, post.routes());
 
 export default posts;

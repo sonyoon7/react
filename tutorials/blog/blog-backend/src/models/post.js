@@ -13,5 +13,6 @@ const PostSchema = new Schema({
   },
 });
 
+//model 함수는  두개의 인자 값이 필요 스키마이름, 스키마 객체
 const Post = mongoose.model("Post", PostSchema);
 export default Post;
