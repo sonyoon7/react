@@ -68,10 +68,10 @@ export const list = async ctx => {
 
   try {
     const posts = await Post.find()
-      .sort({ _id: -1 })
+      .sort({ _id: -1 }) //역순으로 불러오기
       .limit(10)
       .skip((page - 1) * 10)
-      .lean()
+      .lean() //이 함수를 사용하면 데이터를 처음부터 JSON 형태로 조회
       .exec();
     const postCount = await Post.countDocuments().exec();
     ctx.set("Last-Page", Math.ceil(postCount / 10));
