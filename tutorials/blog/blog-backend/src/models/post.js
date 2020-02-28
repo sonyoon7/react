@@ -11,6 +11,10 @@ const PostSchema = new Schema({
     type: Date,
     default: Date.now,
   },
+  user: {
+    _id: mongoose.Types.ObjectId,
+    username: String,
+  },
 });
 
 //model 함수는  두개의 인자 값이 필요 스키마이름, 스키마 객체
